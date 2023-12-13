@@ -21,7 +21,6 @@ stars.forEach(star => {
     const rating = parseInt(star.getAttribute('data-star'));
     updateRating(rating);
     valutazione = rating;
-
   });
 
   star.addEventListener('mouseover', () => {
@@ -44,7 +43,6 @@ const updateRating = (rating) => {
 
 const highlightStars = (count) => {
   resetStars();
-
   stars.forEach(star => {
     const starRating = parseInt(star.getAttribute('data-star'));
     if (starRating <= count) {
