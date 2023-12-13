@@ -95,7 +95,7 @@ function render() {
       caroselItems += templateCaroselItem.replace("%ACTIVE", index == 0 ? "active" : "").replace("%URL", img);
     }
   });
-  let carosel = templateCarosel.replace("%ITEMS", caroselItems);
+  let carosel = templateCarosel.replace("%ITEMS", ccccaroselItems);
   let htmlTab = "";
   htmlTab += table.replace("%IMG", carosel).replace("%TIT", myPOI.nome).replace("%DESCRIZIONE", myPOI.descrizione).replace("%POS", "" + myPOI.longitudine + "" + myPOI.latitudine).replace(highlightStars(myPOI.valutazione)).replace("%DISTANZA", myPOI.distanza);
   tabella.innerHTML = htmlTab;
