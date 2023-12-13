@@ -111,6 +111,7 @@ const render = () => {
 }
 
 buttonAdd.onclick = () => {
+  console.log("entratro");
   imgArray = img.value.split(",");
   get("POI").then((response) => {
     POI = JSON.parse(response.result);
@@ -118,7 +119,7 @@ buttonAdd.onclick = () => {
     POI.push({ "nome": nome.value, "descrizione": descr.value, "longitudine": long.value, "latitudine": lat.value, "img": imgArray, "valutazione": valutazione, "distanza": dis.value });
     //salvo i POI sulla cache remota
     set(POI, "POI").then(() => { render() })
-
+    console.log("passa", POI);
   });
 }
 
