@@ -4,6 +4,8 @@ const buttonLog = document.getElementById("login");
 const divLogin = document.getElementById('divLogin');
 const divMappa = document.getElementById('divMappa');
 const divElenco = document.getElementById('divElenco');
+const buttonDett = document.getElementById('dettagli');
+
 
 function setLayers(map) {
   const layers = [new ol.layer.Tile({ source: new ol.source.OSM() })];
@@ -99,6 +101,9 @@ const renderElenco = () => {
   });
 }
 renderElenco();
+buttonDett.onclick = () =>{
+  window.location.href = "dettaglio.html";
+}
 buttonLog.onclick = () => {
   login(username.value, password.value).then((element) => {
     if (element.result !== false) {

@@ -78,14 +78,14 @@
               </div>
               <div class="form-group">
                 <label for="lat">Inserisci latitudine POI</label>
-                <input type="text" class="form-control" id="lat" placeholder='Ex.. 40,4854"'>
+                <input type="text" class="form-control" id="lat" placeholder='Ex.. 40,4854'>
               </div>
               <div class="form-group">
-                <label for="distanza">Inserisci distanza dal centro di Napoli (in Kilometri possibilmente)</label>
-                <input type="number" class="form-control" id="distanza" placeholder='Ex.. 1,5 "'>Km
+                <label for="distanza">Inserisci distanza dal centro di Napoli (La distanza va inserita misurata in Kilometri)</label>
+                  <input type="number" class="form-control" id="distanza" placeholder='Ex.. 1,5 '>
               </div>
               <div class="form-group">
-                <p class="lead">Dai una valutazione da 1 a 5 stelle al POI</p>
+                <label for="distanza">Dai una valutazione da 1 a 5 stelle al POI</label>
                 <div id="rating" class="d-flex">
                   <!-- Crea cinque stelle vuote -->
                   <span class="star" data-star="1">&#9734;</span>
@@ -94,9 +94,8 @@
                   <span class="star" data-star="4">&#9734;</span>
                   <span class="star" data-star="5">&#9734;</span>
                 </div>
-                <p class="mt-2">Il tuo voto: <span id="selected-rating">0</span></p>
+                <p>Il tuo voto: <span id="selected-rating">0</span></p>
               </div>
-          </div>
           <div class="form-group">
             <label for="img">Inserisci link immagini POI (si consiglia di usare ImgUr, nal caso di più immagini
               separarle con una virgola)</label>
