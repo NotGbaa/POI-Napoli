@@ -5,7 +5,8 @@ const divLogin = document.getElementById('divLogin');
 const divMappa = document.getElementById('divMappa');
 const divElenco = document.getElementById('divElenco');
 const buttonDett = document.getElementById('dettagli');
-
+const buttonEle = document.getElementById('elenco');
+const buttonMap = document.getElementById('mappa');
 
 function setLayers(map) {
   const layers = [new ol.layer.Tile({ source: new ol.source.OSM() })];
@@ -36,7 +37,6 @@ function addMarker(map, point) {
     })
   });
   map.addLayer(layer);
-  console.log("aggiunto", map, layer);
 }
 const caricaMark = (map) => {
   get("POI").then((response) => {
@@ -103,6 +103,14 @@ const renderElenco = () => {
 renderElenco();
 buttonDett.onclick = () =>{
   window.location.href = "dettaglio.html";
+}
+buttonEle.onclick = () =>{
+  divElenco.style.display = 'block';
+  divMappa.style.display = 'none';
+}
+buttonMap.onclick = () =>{
+  divElenco.style.display = 'none';
+  divMappa.style.display = 'block';
 }
 buttonLog.onclick = () => {
   login(username.value, password.value).then((element) => {
