@@ -11,7 +11,7 @@ const long = document.getElementById("long");
 const lat = document.getElementById("lat");
 const dis = document.getElementById("distanza");
 const img = document.getElementById("img");
-const buttonAdd = document.getElementById("add");
+consst buttonAdd = document.getElementById("add");
 // Aggiungi gestori di eventi alle stelle
 const stars = document.querySelectorAll('.star');
 const ratingElement = document.getElementById('selected-rating');
