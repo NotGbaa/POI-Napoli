@@ -15,12 +15,13 @@ const buttonAdd = document.getElementById("add");
 // Aggiungi gestori di eventi alle stelle
 const stars = document.querySelectorAll('.star');
 const ratingElement = document.getElementById('selected-rating');
-const valutazione = 0;
+let valutazione = 0;
 stars.forEach(star => {
   star.addEventListener('click', () => {
     const rating = parseInt(star.getAttribute('data-star'));
     updateRating(rating);
     valutazione = rating;
+    console.log(valutazione);
   });
 
   star.addEventListener('mouseover', () => {
@@ -35,6 +36,7 @@ stars.forEach(star => {
     highlightStars(currentRating);
   });
 });
+console.log(valutazione);
 
 const updateRating = (rating) => {
   ratingElement.textContent = rating;

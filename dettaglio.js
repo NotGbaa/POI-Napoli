@@ -73,7 +73,7 @@ function render() {
   </tr>
   <tr>
     <td>
-    <div id="rating" class="d-flex">
+    <div id="rating" class="d-flex ">
     <!-- Crea cinque stelle vuote -->
     <span class="star" data-star="1">&#9734;</span>
     <span class="star" data-star="2">&#9734;</span>
@@ -87,27 +87,28 @@ function render() {
 
   </tr>
         `;
-
-
+        const stars = document.querySelectorAll('.star');
+const highlightStars = (count) => {
+  console.log(stars); //entra detro al metodo ma stars mi restituisce Nodelist []
+  stars.forEach(star => {    //non entra nel forEach
+    const starRating = parseInt(star.getAttribute('data-star'));
+    console.log(starRating);
+    if (starRating <= count) {
+      star.classList.add('selected');
+    }
+  });
+}
+        highlightStars(myPOI.valutazione);
   let caroselItems = "";
   myPOI.img.forEach((img, index) => {
     if (img != undefined) {
       caroselItems += templateCaroselItem.replace("%ACTIVE", index == 0 ? "active" : "").replace("%URL", img);
     }
   });
-  let carosel = templateCarosel.replace("%ITEMS", ccccaroselItems);
+  let carosel = templateCarosel.replace("%ITEMS", caroselItems);
   let htmlTab = "";
-  htmlTab += table.replace("%IMG", carosel).replace("%TIT", myPOI.nome).replace("%DESCRIZIONE", myPOI.descrizione).replace("%POS", "" + myPOI.longitudine + "" + myPOI.latitudine).replace(highlightStars(myPOI.valutazione)).replace("%DISTANZA", myPOI.distanza);
+  htmlTab += table.replace("%IMG", carosel).replace("%TIT", myPOI.nome).replace("%DESCRIZIONE", myPOI.descrizione).replace("%POS", "Longitudine:" + myPOI.longitudine + "   Latitudine:" + myPOI.latitudine).replace("%DISTANZA", myPOI.distanza);
   tabella.innerHTML = htmlTab;
-}
-const stars = document.querySelectorAll('span[class="star"]');
-const highlightStars = (count) => {
-  stars.forEach(star => {
-    const starRating = parseInt(star.getAttribute('data-star'));
-    if (starRating <= count) {
-      star.classList.add('selected');
-    }
-  });
 }
 
 
