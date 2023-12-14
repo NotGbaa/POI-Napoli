@@ -49,6 +49,7 @@ const highlightStars = (count) => {
     const starRating = parseInt(star.getAttribute('data-star'));
     if (starRating <= count) {
       star.classList.add('selected');
+      console.log(star);
     }
   });
 }

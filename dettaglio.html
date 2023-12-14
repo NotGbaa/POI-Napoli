@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Point of Interest</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./admin.css" rel="stylesheet" type="text/css" />
+
   <style>
     /* Stile per rendere il div inizialmente non visibile */
     #divLogin {
@@ -18,7 +20,7 @@
   </style>
 </head>
 
-<body class="text-light d-flex align-items-center justify-content-center vh-100">
+<body class="d-flex align-items-center justify-content-center vh-100">
   <div id="divLogin" class="container bg-secondary p-4 rounded shadow text-center">
     <form>
       <div class="form-group">
@@ -33,7 +35,7 @@
     </form>
   </div>
   <div id="divDettagli" class="container table-wrapper-scroll-y my-custom-scrollbar">
-    <table id="tabella" class="table table-dark table-hover " style="width:100%">
+    <table id="tabella" style="width:100%">
     </table>
     <button id="view" class="btn btn-primary">Ritorna a vista mappa</button>
   </div>

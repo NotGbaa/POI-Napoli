@@ -80,26 +80,15 @@ function render() {
     <span class="star" data-star="3">&#9734;</span>
     <span class="star" data-star="4">&#9734;</span>
     <span class="star" data-star="5">&#9734;</span>
-  </div>    </td>
+  </div>  
+    </td>
 <td>
       <div id="dist">%DISTANZA</div>
     </td>
 
   </tr>
         `;
-        const stars = [].slice.call(document.querySelectorAll(".star"));
-        console.log(stars);
-        const highlightStars = (count) => {
-  console.log(stars); //entra detro al metodo ma stars mi restituisce Nodelist []
-  stars.forEach(star => {    //non entra nel forEach
-    const starRating = parseInt(star.getAttribute('data-star'));
-    console.log(starRating);
-    if (starRating <= count) {
-      star.classList.add('selected');
-    }
-  });
-}
-        highlightStars(myPOI.valutazione);
+
   let caroselItems = "";
   myPOI.img.forEach((img, index) => {
     if (img != undefined) {
@@ -110,6 +99,22 @@ function render() {
   let htmlTab = "";
   htmlTab += table.replace("%IMG", carosel).replace("%TIT", myPOI.nome).replace("%DESCRIZIONE", myPOI.descrizione).replace("%POS", "Longitudine:" + myPOI.longitudine + "   Latitudine:" + myPOI.latitudine).replace("%DISTANZA", myPOI.distanza);
   tabella.innerHTML = htmlTab;
+  const stars = document.querySelectorAll(".star");
+  console.log(stars);
+  const highlightStars = (count) => {
+    console.log(stars); //entra detro al metodo ma stars mi restituisce Nodelist []
+    stars.forEach(star => {    //non entra nel forEach
+      const starRating = parseInt(star.getAttribute('data-star'));
+      console.log(starRating);
+      if (starRating <= count) {
+        console.log("ciao bella");
+        star.classList.add('selected');
+        console.log(star);
+      }
+    });
+  }
+  highlightStars(myPOI.valutazione);
+
 }
 
 
