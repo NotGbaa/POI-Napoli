@@ -115,6 +115,7 @@ buttonAdd.onclick = () => {
   get("POI").then((response) => {
     POI = JSON.parse(response.result);
     //aggiungo un POI alla lista
+    console.log(valutazione);
     POI.push({ "nome": nome.value, "descrizione": descr.value, "longitudine": long.value, "latitudine": lat.value, "img": imgArray, "valutazione": valutazione, "distanza": dis.value });
     //salvo i POI sulla cache remota
     set(POI, "POI").then(() => { render() })

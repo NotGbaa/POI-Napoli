@@ -1,10 +1,10 @@
 import { login, set, get } from "./salva.js";
 const tabellaElenco = document.getElementById("tabella");
+const tabMappa = document.getElementById("tab");
 const buttonLog = document.getElementById("login");
 const divLogin = document.getElementById('divLogin');
 const divMappa = document.getElementById('divMappa');
 const divElenco = document.getElementById('divElenco');
-const buttonDett = document.getElementById('dettagli');
 const buttonEle = document.getElementById('elenco');
 const buttonMap = document.getElementById('mappa');
 
@@ -62,16 +62,45 @@ const tableElenco = `
       <td >%IMG</td>
       <td >%TIT</td>
       <td >%POS</td>
-      <td >%ID</td>
-      
     </tr>
       `;
 let htmlTab = "";
+let htmlTabMap = "";
 //  "https://i.imgur.com/JBcvbpr.png";
 let id = 0;
+let idMap = 0;
+
 let imgArray = "";
 let POI = [];
-//render per creazione della tabella
+//render per creazione della tabella dell'elenco in vista mappa
+const renderTabMap = () => {
+  //get per ottenere tutti i POI
+  get("POI").then((response) => {
+    if (response.result != "") {
+      POI = JSON.parse(response.result);
+      console.log("dopo get tabella mappa", POI);
+      htmlTabMap = "";
+      idMap = 0;
+      POI.forEach((element) => {
+        idMap++;
+        //creo la riga contenente i dati del POI inserito
+        htmlTabMap += tableElenco.replace("%IMG", "<img src='" + element.img[0] + "' title='source: imgur.com' height='125px' width='250px' >").replace("%TIT", element.nome).replace("%POS", "" + element.longitudine + "" + element.latitudine).replace("%DETTAGLIO", "<button class='btn btn-primary' id='bottone-" + id + "'>visualizza Dettaglio</button>");
+      });
+      // aggiungo la tabella al div
+      tabMappa.innerHTML = htmlTabMap;
+      //ciclo per far funzionare tutti i bottoni per entrare in vista elenco per una riga dalla tabella
+      for (let cont = 1; cont <= idMap; cont++) {
+        let button = document.getElementById("bottone-" + cont);
+        //bottone per rimuovere POI
+        button.onclick = () => {
+          window.location.href = "dettaglio.html?id=" + cont;
+        }
+      }
+    }
+  });
+}
+renderTabMap();
+//render per creazione della tabella vista elenco
 const renderElenco = () => {
   //get per ottenere tutti i POI
   get("POI").then((response) => {
@@ -83,27 +112,22 @@ const renderElenco = () => {
       POI.forEach((element) => {
         id++;
         //creo la riga contenente i dati del POI inserito
-        htmlTab += tableElenco.replace("%ID", id).replace("%IMG", "<img src='" + element.img[0] + "' title='source: imgur.com' height='125px' width='250px' >").replace("%TIT", element.nome).replace("%POS", "" + element.longitudine + "" + element.latitudine).replace("%DETTAGLIO", "<button class='btn btn-primary' id='bottone-" + id + "'>visualizza Dettaglio</button>");
+        htmlTab += tableElenco.replace("%IMG", "<img src='" + element.img[0] + "' title='source: imgur.com' height='125px' width='250px' >").replace("%TIT", element.nome).replace("%POS", "" + element.longitudine + "" + element.latitudine).replace("%DETTAGLIO", "<button class='btn btn-primary' id='bottone-" + id + "'>visualizza Dettaglio</button>");
       });
       // aggiungo la tabella al div
       tabellaElenco.innerHTML = htmlTab;
-      //ciclo per far funzionare tutti i bottoni per eliminare una riga dalla tabella
+      //ciclo per far funzionare tutti i bottoni per entrare in vista elenco per una riga dalla tabella
       for (let cont = 1; cont <= id; cont++) {
         let button = document.getElementById("bottone-" + cont);
-        //bottone per rimuovere POI
         button.onclick = () => {
           window.location.href = "dettaglio.html?id=" + cont;
         }
       }
     }
-
-
   });
 }
 renderElenco();
-buttonDett.onclick = () =>{
-  window.location.href = "dettaglio.html";
-}
+
 buttonEle.onclick = () =>{
   divElenco.style.display = 'block';
   divMappa.style.display = 'none';

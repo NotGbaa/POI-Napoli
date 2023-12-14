@@ -87,8 +87,9 @@ function render() {
 
   </tr>
         `;
-        const stars = document.querySelectorAll('.star');
-const highlightStars = (count) => {
+        const stars = [].slice.call(document.querySelectorAll(".star"));
+        console.log(stars);
+        const highlightStars = (count) => {
   console.log(stars); //entra detro al metodo ma stars mi restituisce Nodelist []
   stars.forEach(star => {    //non entra nel forEach
     const starRating = parseInt(star.getAttribute('data-star'));
