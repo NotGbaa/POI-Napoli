@@ -58,7 +58,6 @@ export const get = (token) => {
       })
     })
       .then((r) => resolve(r.json()))
-
       .catch((error) => reject(error));
   });
 }

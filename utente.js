@@ -42,7 +42,7 @@ const caricaMark = (map) => {
   get("POI").then((response) => {
     if (response.result != "") {
       POI = JSON.parse(response.result);
-      console.log("dopo get", POI);
+      console.log("dopo get caricaMark", POI);
       POI.forEach((element) => {
         let marker = { lonlat: [element.longitudine, element.latitudine], name: element.nome };
         addMarker(map, marker);
@@ -70,7 +70,6 @@ let htmlTabMap = "";
 let id = 0;
 let idMap = 0;
 
-let imgArray = "";
 let POI = [];
 //render per creazione della tabella dell'elenco in vista mappa
 const renderTabMap = () => {
@@ -84,15 +83,14 @@ const renderTabMap = () => {
       POI.forEach((element) => {
         idMap++;
         //creo la riga contenente i dati del POI inserito
-        htmlTabMap += tableElenco.replace("%IMG", "<img src='" + element.img[0] + "' title='source: imgur.com' height='125px' width='250px' >").replace("%TIT", element.nome).replace("%POS", "" + element.longitudine + "" + element.latitudine).replace("%DETTAGLIO", "<button class='btn btn-primary' id='bottone-" + id + "'>visualizza Dettaglio</button>");
+        htmlTabMap += tableElenco.replace("%IMG", "<img src='" + element.img[0] + "' title='source: imgur.com' height='125px' width='250px' >").replace("%TIT", element.nome).replace("%POS", "" + element.longitudine + "" + element.latitudine).replace("%DETTAGLIO", "<button class='btn btn-primary' id='bottone1-" + idMap + "'>visualizza Dettaglio</button>");
       });
       // aggiungo la tabella al div
       tabMappa.innerHTML = htmlTabMap;
       //ciclo per far funzionare tutti i bottoni per entrare in vista elenco per una riga dalla tabella
       for (let cont = 1; cont <= idMap; cont++) {
-        let button = document.getElementById("bottone-" + cont);
-        //bottone per rimuovere POI
-        button.onclick = () => {
+        let button1 = document.getElementById("bottone1-" + cont);
+        button1.onclick = () => {
           window.location.href = "dettaglio.html?id=" + cont;
         }
       }
@@ -106,7 +104,7 @@ const renderElenco = () => {
   get("POI").then((response) => {
     if (response.result != "") {
       POI = JSON.parse(response.result);
-      console.log("dopo get", POI);
+      console.log("dopo get render elenco", POI);
       htmlTab = "";
       id = 0;
       POI.forEach((element) => {

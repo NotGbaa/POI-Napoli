@@ -12,16 +12,19 @@ const lat = document.getElementById("lat");
 const dis = document.getElementById("distanza");
 const img = document.getElementById("img");
 const buttonAdd = document.getElementById("add");
+const buttonUtente = document.getElementById("utente");
 // Aggiungi gestori di eventi alle stelle
 const stars = document.querySelectorAll('.star');
 const ratingElement = document.getElementById('selected-rating');
 let valutazione = 0;
+buttonUtente.onclick = () =>{
+  window.location.href = "list.html";
+}
 stars.forEach(star => {
   star.addEventListener('click', () => {
     const rating = parseInt(star.getAttribute('data-star'));
     updateRating(rating);
     valutazione = rating;
-    console.log(valutazione);
   });
 
   star.addEventListener('mouseover', () => {
@@ -36,7 +39,6 @@ stars.forEach(star => {
     highlightStars(currentRating);
   });
 });
-console.log(valutazione);
 
 const updateRating = (rating) => {
   ratingElement.textContent = rating;
@@ -49,7 +51,6 @@ const highlightStars = (count) => {
     const starRating = parseInt(star.getAttribute('data-star'));
     if (starRating <= count) {
       star.classList.add('selected');
-      console.log(star);
     }
   });
 }
@@ -80,7 +81,7 @@ const render = () => {
   get("POI").then((response) => {
     if (response.result != "") {
       POI = JSON.parse(response.result);
-      console.log("dopo get", POI);
+      console.log("dopo get del render", POI);
       htmlTab = "";
       id = 0;
       POI.forEach((element) => {
@@ -100,7 +101,6 @@ const render = () => {
             if (response.result != "") {
               POI = JSON.parse(response.result);
               POI.splice(cont - 1, 1);
-              console.log("cancellati", POI)
               set(POI, "POI").then(() => { render() });
 
             }
@@ -112,16 +112,14 @@ const render = () => {
 }
 
 buttonAdd.onclick = () => {
-  console.log("entratro");
   imgArray = img.value.split(",");
   get("POI").then((response) => {
     POI = JSON.parse(response.result);
     //aggiungo un POI alla lista
-    console.log(valutazione);
     POI.push({ "nome": nome.value, "descrizione": descr.value, "longitudine": long.value, "latitudine": lat.value, "img": imgArray, "valutazione": valutazione, "distanza": dis.value });
     //salvo i POI sulla cache remota
     set(POI, "POI").then(() => { render() })
-    console.log("passa", POI);
+    console.log("salva =>", POI);
   });
 }
 

@@ -18,7 +18,6 @@ function getPOI(id) {
       if (response.result != "") {
         let POI = [];
         POI = JSON.parse(response.result);
-        console.log("id", id - 1)
         let myPOI = POI[id - 1];
         resolve(myPOI);
       }
@@ -100,16 +99,11 @@ function render() {
   htmlTab += table.replace("%IMG", carosel).replace("%TIT", myPOI.nome).replace("%DESCRIZIONE", myPOI.descrizione).replace("%POS", "Longitudine:" + myPOI.longitudine + "   Latitudine:" + myPOI.latitudine).replace("%DISTANZA", myPOI.distanza);
   tabella.innerHTML = htmlTab;
   const stars = document.querySelectorAll(".star");
-  console.log(stars);
   const highlightStars = (count) => {
-    console.log(stars); //entra detro al metodo ma stars mi restituisce Nodelist []
-    stars.forEach(star => {    //non entra nel forEach
+    stars.forEach(star => {   
       const starRating = parseInt(star.getAttribute('data-star'));
-      console.log(starRating);
       if (starRating <= count) {
-        console.log("ciao bella");
         star.classList.add('selected');
-        console.log(star);
       }
     });
   }
