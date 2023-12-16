@@ -16,42 +16,52 @@
   <link href="./dettaglio.css" rel="stylesheet" type="text/css" />
 
   <!-- bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body class="d-flex align-items-center justify-content-center vh-100">
 
-  <div id="divLogin" class="container bg-secondary p-4 rounded shadow text-center">
-
+  <!-- schermata di login -->
+  <div id="divLogin" class="container p-4 text-center">
     <form>
 
       <div class="form-group">
-        <label for="username" class="text-light">Enter a username</label>
+        <label for="username" class="">Enter a username</label>
         <input type="text" class="form-control" id="username" placeholder="Username">
       </div>
 
       <div class="form-group">
-        <label for="pass" class="text-light">Enter a password</label>
+        <label for="pass" class="">Enter a password</label>
         <input type="password" class="form-control" id="password" placeholder="Password">
       </div>
 
+      <br>
+
       <button type="button" id="login" class="btn btn-primary">Log in</button>
+
     </form>
   </div>
 
+  <!-- dettaglio POI-->
   <div id="divDettagli" class="container table-wrapper-scroll-y my-custom-scrollbar">
-    <table id="tabella" style="width:100%">
-    </table>
     <button id="view" class="btn btn-primary">Ritorna a vista mappa</button>
+    <table id="tabella"></table>
   </div>
 
   <!-- script personale -->
   <script src="./dettaglio.js" type="module"></script>
 
   <!-- bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
