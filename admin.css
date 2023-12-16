@@ -8,7 +8,7 @@
 
 .my-custom-scrollbar {
   position: relative;
-  height: 200px;
+  height: all;
   overflow: auto;
 }
 
