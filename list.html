@@ -22,10 +22,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.1.0/ol.css">
 </head>
 
-<body class="d-flex align-items-center justify-content-center vh-100">
+<body>
 
   <!-- schermata di login -->
-  <div id="divLogin" class="container p-4 text-center">
+  <div id="divLogin" class="container text-center">
     <form>
 
       <div class="form-group">
@@ -46,21 +46,37 @@
   </div>
 
   <!-- mappa con elenco-->
-  <div id="divMappa" class="container">
-    <button id="elenco" type="button" class="btn btn-danger">Vai a vista elenco</button>
-    <div class="row justify-content-center">
-      <div class="col-5">
-        <div class="map" id="map"></div>
+  <div id="divMappa" class="">
+    <nav class="navbar sticky-top bg-body-tertiary">
+      <div class="container-fluid">
+        <button id="elenco" type="button" class="btn btn-danger">Vai a vista elenco</button>
       </div>
-      <div class="col-7">
-        <table id="tab" class="table"></table>
+    </nav>
+
+    <br>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-5">
+          <div class="map" id="map"></div>
+        </div>
+        <div class="col-7">
+          <table id="tab" class="table"></table>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- solo elenco POI-->
   <div id="divElenco" class="container">
-    <button id="mappa" type="button" class="btn btn-danger">Vai a vista mappa</button>
+    <nav class="navbar sticky-top bg-body-tertiary">
+      <div class="container-fluid">
+        <button id="mappa" type="button" class="btn btn-danger">Vai a vista mappa</button>
+      </div>
+    </nav>
+
+    <br>
+
     <table id="tabella" class="table"></table>
   </div>
 

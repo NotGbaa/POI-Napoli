@@ -20,10 +20,10 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
-<body class="d-flex align-items-center justify-content-center vh-100">
+<body>
 
   <!-- schermata di login -->
-  <div id="divLogin" class="container p-4 text-center">
+  <div id="divLogin" class="container text-center">
     <form>
 
       <div class="form-group">
@@ -44,9 +44,15 @@
   </div>
 
   <!-- dettaglio POI-->
-  <div id="divDettagli" class="container table-wrapper-scroll-y my-custom-scrollbar">
-    <button id="view" class="btn btn-primary">Ritorna a vista mappa</button>
-    <table id="tabella"></table>
+  <div id="divDettagli" class="table-wrapper-scroll-y my-custom-scrollbar">
+    <nav class="navbar sticky-top bg-body-tertiary">
+      <div class="container-fluid">
+        <button id="view" class="btn btn-primary">Ritorna a vista mappa</button>
+      </div>
+    </nav>
+    <div class="container">
+      <table id="tabella"></table>
+    </div>
   </div>
 
   <!-- script personale -->

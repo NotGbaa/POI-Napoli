@@ -22,7 +22,7 @@
 <body>
 
   <!-- schermata di login -->
-  <div id="divLogin" class="container p-4 text-center">
+  <div id="divLogin" class="container text-center">
     <form>
 
       <div class="form-group">
@@ -43,11 +43,14 @@
   </div>
 
   <!-- schermata punti di interesse -->
-  <div id="divAdmin" class="p-4">
+  <div id="divAdmin" class="">
 
-    <button id="trigger" type="button" class="btn btn-primary" data-bs-toggle="modal"
-      data-bs-target="#exampleModal">Aggiungi nuovo Point Of Interest </button>
-    <button id="utente" type="button" class="btn btn-primary">Visualizza vista utente</button>
+    <nav class="navbar sticky-top bg-body-tertiary">
+      <div class="container-fluid">
+        <button id="trigger" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Aggiungi nuovo Point Of Interest </button>
+        <button id="utente" type="button" class="btn btn-primary">Visualizza vista utente</button>
+      </div>
+    </nav>
 
     <!-- sistema di scorrimento -->
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
