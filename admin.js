@@ -87,7 +87,7 @@ const render = () => {
       POI.forEach((element) => {
         id++;
         //creo la riga contenente i dati del POI inserito
-        htmlTab += table.replace("%ID", id).replace("%IMG", "<img src='" + element.img[0] + "' title='source: imgur.com' height='125px' width='250px' >").replace("%TIT", element.nome).replace("%POS", "" + element.longitudine + "" + element.latitudine).replace("%DELETE", "<button class='btn btn-danger' id='bottone-" + id + "'>cancella POI</button>");
+        htmlTab += table.replace("%ID", id).replace("%IMG", "<img src='" + element.img[0] + "' title='source: imgur.com' height='125px' width='250px' >").replace("%TIT", element.nome).replace("%POS", "longitudine: " + element.longitudine + " latitudine: " + element.latitudine).replace("%DELETE", "<button class='btn btn-danger' id='bottone-" + id + "'>cancella POI</button>");
       });
       // aggiungo la tabella al div
       tabella.innerHTML = htmlTab;

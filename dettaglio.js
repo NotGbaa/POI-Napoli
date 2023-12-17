@@ -53,21 +53,18 @@ function render() {
   `
   const table = `
   <tr>
-    <td rowspan="3">
+    <td  width="50%" class='p-2'>
+      <div id="title" class='h1'>%TIT</div>
+    </td>
+    <td rowspan="2" width="30%">
       <div id="img" class="d-flex justify-content-center">
       %IMG
         </div>
     </td>
-    <td>
-      <div id="title">%TIT</div>
-    </td>
-  </tr>
+    </tr>
   <tr>
     <td>
-      <div id="description">%DESCRIZIONE</div>
-    </td>
-    <td>
-      <div id="pos">%POS</div>
+      <div id="description"  class='p-2'>%DESCRIZIONE</div>
     </td>
   </tr>
   <tr>
@@ -81,8 +78,9 @@ function render() {
     <span class="star" data-star="5">&#9734;</span>
   </div>  
     </td>
-<td>
-      <div id="dist">%DISTANZA</div>
+        <td>
+      <div id="pos" class='h5'>%POS</div>
+      <div id="dist" class='h5'>%DISTANZA</div>
     </td>
 
   </tr>
@@ -96,7 +94,7 @@ function render() {
   });
   let carosel = templateCarosel.replace("%ITEMS", caroselItems);
   let htmlTab = "";
-  htmlTab += table.replace("%IMG", carosel).replace("%TIT", myPOI.nome).replace("%DESCRIZIONE", myPOI.descrizione).replace("%POS", "Longitudine:" + myPOI.longitudine + "   Latitudine:" + myPOI.latitudine).replace("%DISTANZA", myPOI.distanza);
+  htmlTab += table.replace("%IMG", carosel).replace("%TIT", myPOI.nome).replace("%DESCRIZIONE", myPOI.descrizione).replace("%POS", "Longitudine:" + myPOI.longitudine + " <br />Latitudine:" + myPOI.latitudine).replace("%DISTANZA", "Distanza dal centro storico: "+myPOI.distanza+" km");
   tabella.innerHTML = htmlTab;
   const stars = document.querySelectorAll(".star");
   const highlightStars = (count) => {
@@ -134,3 +132,6 @@ buttonLog.onclick = () => {
 
   })
 }
+
+        divLogin.style.display = 'none';
+        divDettagli.style.display = 'block';

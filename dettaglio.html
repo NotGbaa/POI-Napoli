@@ -1,51 +1,69 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Point of Interest</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="./admin.css" rel="stylesheet" type="text/css" />
+    <link href="img/favicon.png" rel="icon" />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Point of Interest</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./admin.css" rel="stylesheet" type="text/css" />
-  <link href="img/favicon.png" rel="icon" />
+    <style>
+      /* Stile per rendere il div inizialmente non visibile */
+      #divLogin {
+        display: block;
+      }
 
-  <style>
-    /* Stile per rendere il div inizialmente non visibile */
-    #divLogin {
-      display: block;
-    }
+      #divDettagli {
+        display: none;
+      }
+    </style>
+  </head>
 
-    #divDettagli {
-      display: none;
-    }
-  </style>
-</head>
+  <body class="d-flex align-items-center justify-content-center vh-100">
+    <div
+      id="divLogin"
+      class="container bg-secondary p-4 rounded shadow text-center"
+    >
+      <form>
+        <div class="form-group">
+          <label for="username" class="text-light">Enter a username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            placeholder="Username"
+          />
+        </div>
+        <div class="form-group">
+          <label for="pass" class="text-light">Enter a password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+        <button type="button" id="login" class="btn btn-primary">Log in</button>
+      </form>
+    </div>
+    <div
+      id="divDettagli"
+      class="container table-wrapper-scroll-y my-custom-scrollbar border border-primary"
+    >
+      <table id="tabella" style="width: 100%"></table>
+      <button id="view" class="btn btn-primary">Ritorna a vista mappa</button>
+    </div>
 
-<body class="d-flex align-items-center justify-content-center vh-100">
-  <div id="divLogin" class="container bg-secondary p-4 rounded shadow text-center">
-    <form>
-      <div class="form-group">
-        <label for="username" class="text-light">Enter a username</label>
-        <input type="text" class="form-control" id="username" placeholder="Username">
-      </div>
-      <div class="form-group">
-        <label for="pass" class="text-light">Enter a password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
-      </div>
-      <button type="button" id="login" class="btn btn-primary">Log in</button>
-    </form>
-  </div>
-  <div id="divDettagli" class="container table-wrapper-scroll-y my-custom-scrollbar">
-    <table id="tabella" style="width:100%">
-    </table>
-    <button id="view" class="btn btn-primary">Ritorna a vista mappa</button>
-  </div>
-
-  <script src="./dettaglio.js" type="module"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-</body>
-
+    <script src="./dettaglio.js" type="module"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
 </html>

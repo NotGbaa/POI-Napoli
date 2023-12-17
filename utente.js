@@ -32,7 +32,7 @@ function addMarker(map, point) {
       image: new ol.style.Icon({
         anchor: [0.5, 1],
         crossOrigin: 'anonymous',
-        src: 'https://docs.maptiler.com/openlayers/default-marker/marker-icon.png',
+        src: '/assets/images/marker-icon.png',
       })
     })
   });

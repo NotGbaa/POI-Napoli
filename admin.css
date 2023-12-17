@@ -13,7 +13,8 @@
 }
 
 .table-wrapper-scroll-y {
-  display: block;
+  height: 80%;
+    display: block;
 }
 
 .star {
